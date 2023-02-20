@@ -1,0 +1,157 @@
+@import "nullification.scss";
+@import "veriables.scss";
+@import "style-email-error.scss";
+@import "scrollbar.scss";
+@import "style-tablet.scss";
+@import "style-mobile.scss";
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 0.65fr;
+    grid-template-rows: minmax(100vh);
+    min-height: 100vh;
+    min-width: 1280px;
+
+    .left-section {
+        position: relative;
+
+        .bg {
+            position: absolute;
+            z-index: -1;
+            height: 100%;
+            width: 100%;
+        }
+        .container {
+            margin: 6% 30% 15% 20%;
+            min-width: 580px;
+            max-width: 580px;
+
+            .logo {
+                width: 180px;
+                margin-bottom: 150px;
+            }
+
+            .text-box {
+                font-family: Josefin Sans;
+
+                &__header {
+                    font-size: 4rem;
+                    font-weight: 600;
+                    color: $dark-grayish-red;
+                    line-height: 4.5rem;
+                    &_pink {
+                        font-weight: 300;
+                        color: $desaturated-red;
+                    }
+                }
+                &__main {
+                    font-size: 1.25rem;
+                    font-weight: 400;
+                    color: $desaturated-red;
+                    line-height: 1.9rem;
+                    margin-top: 30px;
+                    margin-bottom: 50px;
+                }
+            }
+
+            .input-box {
+                position: relative;
+                display: flex;
+                align-items: center;
+
+                &__input {
+                    width: 500px;
+                    border-radius: 30px;
+                    border-style: solid;
+                    border-width: 2px;
+                    border-color: hsla(0, 36%, 70%, 0.347);
+
+                    font-family: Josefin Sans;
+                    font-weight: 400;
+                    font-size: 1.25rem;
+                    color: $dark-grayish-red;
+
+                    transition: box-shadow 0.15s;
+
+                    padding: 18px 80px 18px 30px;
+
+                    &::placeholder {
+                        font-family: Josefin Sans;
+                        font-weight: 400;
+                        font-size: 1.25rem;
+                        color: hsla(0, 36%, 70%, 0.64);
+                    }
+
+                    &:focus {
+                        box-shadow: 0 0 0 0.1rem hsla(0, 36%, 70%, 0.114);
+                    }
+                }
+
+                &__icon-error {
+                    position: absolute;
+                    right: 135px;
+                }
+
+                &__text-error {
+                    position: absolute;
+                    bottom: -35px;
+                    left: 33px;
+                    font-size: 1rem;
+                    font-weight: 400;
+                    color: $soft-red;
+                    cursor: default;
+                }
+
+                &__button-push {
+                    height: 60px;
+                    width: 110px;
+                    border-radius: 30px;
+                    background: $bg-gradient-default;
+                    transition: box-shadow 0.15s, height 0.15s, width 0.15s;
+                    cursor: pointer;
+
+                    margin-left: -50px;
+
+                    box-shadow: 0 10px 20px hsla(0, 36%, 70%, 0.429);
+
+                    &:active {
+                        background: $bg-gradient-active;
+                        box-shadow: 0 0 0 hsla(0, 36%, 70%, 0.429);
+                        height: 58px;
+                        width: 108px;
+                    }
+                }
+            }
+        }
+    }
+
+    .right-section {
+
+        .hero-desktop {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+}
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    background-color: hsla(0, 36%, 70%, 0.425);
+
+    .attribution {
+        font-family: Josefin Sans;
+        font-size: 1rem;
+        font-weight: 600;
+        text-align: center;
+        color: $desaturated-red;
+
+        a {
+            color: $soft-red;
+            font-weight: 400;
+        }
+    }
+}

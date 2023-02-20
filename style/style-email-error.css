@@ -1,0 +1,11 @@
+.border-error {
+  border-color: hsl(0deg, 93%, 68%) !important;
+}
+
+.visible {
+  opacity: 1;
+}
+
+.invisible {
+  opacity: 0;
+}/*# sourceMappingURL=style-email-error.css.map */
