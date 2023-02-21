@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="style/nullification.css">
+        <style>
+            main {
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-template-areas: "logo-box"
+                                    "img-box"
+                                    "text-box"
+                                    "input-box";
+                min-height: 100vh;
+            }
+
+            .logo-box {
+                grid-area: logo-box;
+                background-color: lightcoral;
+                height: 100%;
+                width: 100%;
+            }
+            .text-box {
+                grid-area: text-box;
+                background-color: lightcyan;
+                height: 100%;
+                width: 100%;
+            }
+            .input-box {
+                grid-area: input-box;
+                background-color: lightcoral;
+                height: 100%;
+                width: 100%;
+            }
+            .img-box {
+                grid-area: img-box;
+            }
+            .mobile__img-box {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+            .desktop__img-box {
+                position: absolute;
+                opacity: 0;
+                pointer-events: none;
+            }
+
+            @media (min-width: 762px) {
+                main {
+                    grid-template-columns: 1fr;
+                    grid-template-areas: "logo-box"
+                    "img-box"
+                    "text-box"
+                    "input-box";
+                }
+                .img-box {
+                    max-height: 400px;
+                }
+                .desktop__img-box {
+                    position: absolute;
+                    opacity: 0;
+                    pointer-events: none;
+                }
+                .mobile__img-box {
+                    position: static;
+                    opacity: 1;
+                    pointer-events: auto;
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }
+
+            @media (min-width: 1280px) {
+                main {
+                    grid-template-columns: 1fr 0.65fr;
+                    grid-template-areas: "logo-box img-box"
+                                        "text-box img-box"
+                                        "input-box img-box";
+
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <div class="logo-box container">
+                <img class="logo" src="images/logo.svg" alt="">
+            </div>
+            <div class="text-box container">
+                <h1 class="text-box__header text-box__header_pink">W E ' R E</h1>
+                <h1 class="text-box__header">C O M I N G</h1>
+                <h1 class="text-box__header">S O O N</h1>
+                <p class="text-box__main">
+                    Hello fellow shoppers! We're currently building our new fashion store. Add your email below
+                    to stay up-to-date with announcements and our launch deals.
+                </p>
+            </div>
+            <div class="input-box container">
+                <input class="input-box__input" id="email-field" type="email" placeholder="Email Address"
+                    spellcheck="false" onkeypress="validateEmail(event)">
+                <img class="input-box__icon-error invisible" id="icon-error" src="images/icon-error.svg" alt="">
+                <button class="input-box__button-push" onclick="validateEmail(event)" onkeypress="validateEmail(event)">
+                    <img src="images/icon-arrow.svg" alt="">
+                </button>
+                <span class="input-box__text-error invisible" id="text-error">
+                    Please provide a valid email
+                </span>
+            </div>
+            <div class="img-box">
+                <img class="img-box__mobile" src="images/hero-mobile.jpg" alt="">
+                <img class="img-box__desktop" src="images//hero-desktop.jpg" alt="">
+            </div>
+        </main>
+        <footer>
+            <p class="attribution">
+                CHALLENGE BY <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">FRONTEND
+                    MENTOR</a>
+            </p>
+            <p class="attribution">
+                CODED BY <a href="https://github.com/GrigoryevaEva">EVA</a>
+            </p>
+        </footer>
+        <script src="app/js/email-error.js"></script>
+    </body>
+</html>

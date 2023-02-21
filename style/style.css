@@ -90,59 +90,61 @@ h1, h2, h3, h4, h5, h6 {
   background: hsl(0deg, 36%, 70%);
 }
 
-main {
-  display: grid;
-  grid-template-columns: 1fr 0.65fr;
-  grid-template-rows: minmax(100vh);
-  min-height: 100vh;
-  min-width: 1280px;
-}
-main .left-section {
-  position: relative;
-}
-main .left-section .bg {
+.bg {
   position: absolute;
   z-index: -1;
   height: 100%;
   width: 100%;
 }
-main .left-section .container {
-  margin: 6% 30% 15% 20%;
-  min-width: 580px;
-  max-width: 580px;
+
+body {
+  background: linear-gradient(#FFFDFE, #FFF6F7);
 }
-main .left-section .container .logo {
-  width: 180px;
-  margin-bottom: 150px;
+
+main {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: "logo-box" "img-box" "text-box" "input-box";
+  min-height: 100vh;
 }
-main .left-section .container .text-box {
+main .logo-box {
+  grid-area: logo-box;
+}
+main .logo-box .logo {
+  width: 120px;
+}
+main .text-box {
+  grid-area: text-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   font-family: Josefin Sans;
 }
-main .left-section .container .text-box__header {
+main .text-box__header {
   font-size: 4rem;
   font-weight: 600;
   color: hsl(0deg, 6%, 24%);
   line-height: 4.5rem;
 }
-main .left-section .container .text-box__header_pink {
+main .text-box__header_pink {
   font-weight: 300;
   color: hsl(0deg, 36%, 70%);
 }
-main .left-section .container .text-box__main {
+main .text-box__main {
   font-size: 1.25rem;
   font-weight: 400;
   color: hsl(0deg, 36%, 70%);
   line-height: 1.9rem;
-  margin-top: 30px;
-  margin-bottom: 50px;
 }
-main .left-section .container .input-box {
+main .input-box {
+  grid-area: input-box;
   position: relative;
   display: flex;
+  justify-content: center;
   align-items: center;
 }
-main .left-section .container .input-box__input {
-  width: 500px;
+main .input-box__input {
+  width: 400px;
   border-radius: 30px;
   border-style: solid;
   border-width: 2px;
@@ -154,26 +156,27 @@ main .left-section .container .input-box__input {
   transition: box-shadow 0.15s;
   padding: 18px 80px 18px 30px;
 }
-main .left-section .container .input-box__input::-moz-placeholder {
+main .input-box__input::-moz-placeholder {
   font-family: Josefin Sans;
   font-weight: 400;
   font-size: 1.25rem;
   color: hsla(0deg, 36%, 70%, 0.64);
 }
-main .left-section .container .input-box__input::placeholder {
+main .input-box__input::placeholder {
   font-family: Josefin Sans;
   font-weight: 400;
   font-size: 1.25rem;
   color: hsla(0deg, 36%, 70%, 0.64);
 }
-main .left-section .container .input-box__input:focus {
+main .input-box__input:focus {
   box-shadow: 0 0 0 0.1rem hsla(0deg, 36%, 70%, 0.114);
 }
-main .left-section .container .input-box__icon-error {
+main .input-box__icon-error {
+  pointer-events: none;
   position: absolute;
   right: 135px;
 }
-main .left-section .container .input-box__text-error {
+main .input-box__text-error {
   position: absolute;
   bottom: -35px;
   left: 33px;
@@ -182,7 +185,7 @@ main .left-section .container .input-box__text-error {
   color: hsl(0deg, 93%, 68%);
   cursor: default;
 }
-main .left-section .container .input-box__button-push {
+main .input-box__button-push {
   height: 60px;
   width: 110px;
   border-radius: 30px;
@@ -192,17 +195,26 @@ main .left-section .container .input-box__button-push {
   margin-left: -50px;
   box-shadow: 0 10px 20px hsla(0deg, 36%, 70%, 0.429);
 }
-main .left-section .container .input-box__button-push:active {
+main .input-box__button-push:active {
   background: linear-gradient(to right, hsl(0deg, 100%, 91%), hsl(0deg, 73%, 81%));
   box-shadow: 0 0 0 hsla(0deg, 36%, 70%, 0.429);
   height: 58px;
   width: 108px;
 }
-main .right-section .hero-desktop {
+
+.img-box {
+  grid-area: img-box;
+}
+.img-box__mobile {
   height: 100%;
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+.img-box__desktop {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
 }
 
 footer {

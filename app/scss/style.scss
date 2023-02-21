@@ -2,138 +2,149 @@
 @import "veriables.scss";
 @import "style-email-error.scss";
 @import "scrollbar.scss";
-@import "style-tablet.scss";
-@import "style-mobile.scss";
+
+.bg {
+    position: absolute;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background: linear-gradient(#FFFDFE, #FFF6F7);
+}
 
 main {
     display: grid;
-    grid-template-columns: 1fr 0.65fr;
-    grid-template-rows: minmax(100vh);
+    grid-template-columns: 1fr;
+    grid-template-areas: "logo-box"
+                        "img-box"
+                        "text-box"
+                        "input-box";
     min-height: 100vh;
-    min-width: 1280px;
 
-    .left-section {
-        position: relative;
+    .logo-box {
+        grid-area: logo-box;
 
-        .bg {
-            position: absolute;
-            z-index: -1;
-            height: 100%;
-            width: 100%;
-        }
-        .container {
-            margin: 6% 30% 15% 20%;
-            min-width: 580px;
-            max-width: 580px;
-
-            .logo {
-                width: 180px;
-                margin-bottom: 150px;
-            }
-
-            .text-box {
-                font-family: Josefin Sans;
-
-                &__header {
-                    font-size: 4rem;
-                    font-weight: 600;
-                    color: $dark-grayish-red;
-                    line-height: 4.5rem;
-                    &_pink {
-                        font-weight: 300;
-                        color: $desaturated-red;
-                    }
-                }
-                &__main {
-                    font-size: 1.25rem;
-                    font-weight: 400;
-                    color: $desaturated-red;
-                    line-height: 1.9rem;
-                    margin-top: 30px;
-                    margin-bottom: 50px;
-                }
-            }
-
-            .input-box {
-                position: relative;
-                display: flex;
-                align-items: center;
-
-                &__input {
-                    width: 500px;
-                    border-radius: 30px;
-                    border-style: solid;
-                    border-width: 2px;
-                    border-color: hsla(0, 36%, 70%, 0.347);
-
-                    font-family: Josefin Sans;
-                    font-weight: 400;
-                    font-size: 1.25rem;
-                    color: $dark-grayish-red;
-
-                    transition: box-shadow 0.15s;
-
-                    padding: 18px 80px 18px 30px;
-
-                    &::placeholder {
-                        font-family: Josefin Sans;
-                        font-weight: 400;
-                        font-size: 1.25rem;
-                        color: hsla(0, 36%, 70%, 0.64);
-                    }
-
-                    &:focus {
-                        box-shadow: 0 0 0 0.1rem hsla(0, 36%, 70%, 0.114);
-                    }
-                }
-
-                &__icon-error {
-                    position: absolute;
-                    right: 135px;
-                }
-
-                &__text-error {
-                    position: absolute;
-                    bottom: -35px;
-                    left: 33px;
-                    font-size: 1rem;
-                    font-weight: 400;
-                    color: $soft-red;
-                    cursor: default;
-                }
-
-                &__button-push {
-                    height: 60px;
-                    width: 110px;
-                    border-radius: 30px;
-                    background: $bg-gradient-default;
-                    transition: box-shadow 0.15s, height 0.15s, width 0.15s;
-                    cursor: pointer;
-
-                    margin-left: -50px;
-
-                    box-shadow: 0 10px 20px hsla(0, 36%, 70%, 0.429);
-
-                    &:active {
-                        background: $bg-gradient-active;
-                        box-shadow: 0 0 0 hsla(0, 36%, 70%, 0.429);
-                        height: 58px;
-                        width: 108px;
-                    }
-                }
-            }
+        .logo {
+            width: 120px;
         }
     }
 
-    .right-section {
+    .text-box {
+        grid-area: text-box;
 
-        .hero-desktop {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-family: Josefin Sans;
+
+        &__header {
+            font-size: 4rem;
+            font-weight: 600;
+            color: $dark-grayish-red;
+            line-height: 4.5rem;
+            &_pink {
+                font-weight: 300;
+                color: $desaturated-red;
+            }
+        }
+        &__main {
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: $desaturated-red;
+            line-height: 1.9rem;
+        }
+    }
+    .input-box {
+        grid-area: input-box;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &__input {
+            width: 400px;
+            border-radius: 30px;
+            border-style: solid;
+            border-width: 2px;
+            border-color: hsla(0, 36%, 70%, 0.347);
+
+            font-family: Josefin Sans;
+            font-weight: 400;
+            font-size: 1.25rem;
+            color: $dark-grayish-red;
+
+            transition: box-shadow 0.15s;
+
+            padding: 18px 80px 18px 30px;
+
+            &::placeholder {
+                font-family: Josefin Sans;
+                font-weight: 400;
+                font-size: 1.25rem;
+                color: hsla(0, 36%, 70%, 0.64);
+            }
+
+            &:focus {
+                box-shadow: 0 0 0 0.1rem hsla(0, 36%, 70%, 0.114);
+            }
+        }
+
+        &__icon-error {
+            pointer-events: none;
+            position: absolute;
+            right: 135px;
+        }
+
+        &__text-error {
+            position: absolute;
+            bottom: -35px;
+            left: 33px;
+            font-size: 1rem;
+            font-weight: 400;
+            color: $soft-red;
+            cursor: default;
+        }
+
+        &__button-push {
+            height: 60px;
+            width: 110px;
+            border-radius: 30px;
+            background: $bg-gradient-default;
+            transition: box-shadow 0.15s, height 0.15s, width 0.15s;
+            cursor: pointer;
+
+            margin-left: -50px;
+
+            box-shadow: 0 10px 20px hsla(0, 36%, 70%, 0.429);
+
+            &:active {
+                background: $bg-gradient-active;
+                box-shadow: 0 0 0 hsla(0, 36%, 70%, 0.429);
+                height: 58px;
+                width: 108px;
+            }
+        }
+    }
+    }
+
+    .img-box {
+        grid-area: img-box;
+
+        &__mobile {
             height: 100%;
             width: 100%;
             object-fit: cover;
         }
+
+        &__desktop {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
     }
-}
+
 footer {
     display: flex;
     flex-direction: column;

@@ -1,0 +1,28 @@
+@media (min-width: 762px) {}
+
+@media (min-width: 1280px) {
+    main {
+        grid-template-columns: 1fr 0.65fr;
+        grid-template-areas:
+            "logo-box img-box"
+            "text-box img-box"
+            "input-box img-box";
+
+        .img-box {
+            &__mobile {
+                position: absolute;
+                opacity: 0;
+                pointer-events: none;
+            }
+
+            &__desktop {
+                position: static;
+                opacity: 1;
+                pointer-events: auto;
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+}
